@@ -4,5 +4,5 @@ TODO:
 - Create program to write instructions to control store.
 - Implement branching logic
 - Implement memory with program (Memory basics are there, figure out how to write the program there. Same method as control store?)
-- Finish Z bit in alu
+- Finish Z bit in alu (Currently blocks compilation).
 - Tie it all together
