@@ -2,7 +2,7 @@ A Mic-1 implementation in VHDL. The Mic-1 is a creation of Tanenbaum.
 
 How to create control store:
 
-1. Compile your .mail file into a .mic1 file.
+1. Compile your .mal file into a .mic1 file.
 2. Use read36bit.rb to produce a 36 bit/line file. (example: `ruby read36bit.rb a.mic1 > bin36.txt`)
 3. Use generate_rom.rb to produce the entities needed. (example: `ruby generate_rom.rb bin36.txt > generated_rom.txt` )
 4. Add the generated entities to control_store.vhd, replacing the existing ROM entities.
