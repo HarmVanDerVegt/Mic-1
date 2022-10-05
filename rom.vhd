@@ -9,7 +9,7 @@ entity rom is
     value : std_logic_vector(36 -1 downto 0) := (5 => '1', 3 => '1', others => '0'));
 
   port (
-    clock, enable_o : in  std_logic;
+    enable_o : in  std_logic;
     output          : out std_logic_vector(bits -1 downto 0));
 
 end entity rom;
