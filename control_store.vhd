@@ -3,11 +3,13 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_misc.all;
 use ieee.numeric_std.all;
 
+-- WARNING: Very large file, auto-formatting takes a while.
+-- Turn off auto-formatting on save.
+
 entity control_store is
 
   port (
     address     : in  std_logic_vector(8 downto 0);
-    test        : out std_logic_vector(35 downto 0);
     instruction : out std_logic_vector(35 downto 0));
 
 end entity control_store;
@@ -45,6 +47,10 @@ begin  -- architecture control_store_ar
     port map (
       input  => address,
       output => mem_enable_lines);
+
+  lf : for i in 35 downto 0 generate
+    instruction(i) <= or_reduce(mem_array(i));
+  end generate lf;
 
   rom0 : entity work.rom
     generic map (
@@ -22062,21 +22068,5 @@ begin  -- architecture control_store_ar
       output(34) => mem_array(34)(511),
       output(35) => mem_array(35)(511)
       );
-
-
-  -- gen: for i in 511 downto 0 generate
-  --   temp_instruction <= temp_instruction or mem_array(i);
-  --   test <= temp_instruction;
-  -- end generate gen;
-  -- instruction <= temp_instruction;
-
-  -- gen: for i in 511 downto 0 generate
-  --   temp_instruction(i) 
-  -- end generate gen;
-
-  lf : for i in 35 downto 0 generate
-    instruction(i) <= or_reduce(mem_array(i));
-  end generate lf;
-
 
 end architecture control_store_ar;
